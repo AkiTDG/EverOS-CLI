@@ -17,17 +17,6 @@ const asciitext = `
 |________/ \\_/    \\_______/|__/        \\______/  \\______/ 
 `;
 const homeMenu = `
-('+--------------------------------------------------+');
-('|==================================================|');
-('|        =======[Welcome to EverOS!]=======        |');
-('| Today is:   ' + new Date().toLocaleDateString().padEnd(37) + '|');
-('| Time check: ' + new Date().toLocaleTimeString(undefined, {
-  hour: '2-digit',
-  minute: '2-digit',
-}).padEnd(37) + '|');
-e('|==================================================|');
-('+--------------------------------------------------+');
-
 +--------------------------------------------+
 |============================================|                                            
 | Features & (command name):                 |
@@ -153,4 +142,14 @@ inputField.addEventListener('keydown', function(event) {
 });
 
 writeToConsole(asciitext);
+writeToConsole('+--------------------------------------------------+');
+writeToConsole('|==================================================|');
+writeToConsole('|        =======[Welcome to EverOS!]=======        |');
+writeToConsole('| Today is:   ' + new Date().toLocaleDateString().padEnd(37) + '|');
+writeToConsole('| Time check: ' + new Date().toLocaleTimeString(undefined, {
+  hour: '2-digit',
+  minute: '2-digit',
+}).padEnd(37) + '|');
+writeToConsole('|==================================================|');
+writeToConsole('+--------------------------------------------------+');
 writeToConsole(homeMenu);
