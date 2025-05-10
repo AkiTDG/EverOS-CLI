@@ -4,7 +4,7 @@ const consoleDiv = document.getElementById('console');
 const inputField = document.getElementById('input');
 
 let currentFeature = 'home';
-
+ 
 const asciitext = `
  /$$$$$$$$                              /$$$$$$   /$$$$$$ 
 | $$_____/                             /$$__  $$ /$$__  $$
