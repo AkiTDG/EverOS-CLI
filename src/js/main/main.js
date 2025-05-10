@@ -1,4 +1,4 @@
-import {calculator} from '../features/calculator.js';
+import {calculator,calcUi} from '../features/calculator.js';
 
 //backbone
 const consoleDiv = document.getElementById('console');
@@ -25,7 +25,7 @@ const homeMenu = `
 | [3. Calculator ]                           |
 |                                            |
 | Type "help" for important commands         |
-| Press F5 to restart OS                     |
+| Press F5 (Or refresh icon)to restart OS    |
 +--------------------------------------------+`;
 
 //help menu
@@ -72,7 +72,7 @@ function handleCommand(rawInput) {
                 break;
             case 'calc':
                 currentFeature = 'calculator';
-                writeToConsole('Entered Calculator mode. \nType "exit" to leave.');
+                writeToConsole(calcUi);
                 break;
             default:
                 writeToConsole('Unknown feature. Type "help" for available commands.');
