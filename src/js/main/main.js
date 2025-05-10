@@ -1,10 +1,11 @@
 import {calculator} from '../features/calculator.js';
 
+//backbone
 const consoleDiv = document.getElementById('console');
 const inputField = document.getElementById('input');
-
 let currentFeature = 'home';
  
+//main UI
 const asciitext = `
  /$$$$$$$$                              /$$$$$$   /$$$$$$ 
 | $$_____/                             /$$__  $$ /$$__  $$
@@ -15,7 +16,6 @@ const asciitext = `
 | $$$$$$$$\\  $/  |  $$$$$$$| $$       |  $$$$$$/|  $$$$$$/
 |________/ \\_/    \\_______/|__/        \\______/  \\______/ 
 `;
-
 const homeMenu = `
 +--------------------------------------------+
 | Features:                                  |
@@ -28,6 +28,7 @@ const homeMenu = `
 | Press F5 to restart OS                     |
 +--------------------------------------------+`;
 
+//help menu
 const helpText = `
 +------------------------------------------------------------------------+
 |                                                                        |
@@ -39,12 +40,14 @@ const helpText = `
 |                                                                        |
 +------------------------------------------------------------------------+`;
 
+//U.I. backbone
 function writeToConsole(text) {
     const consoleDiv = document.getElementById('console');
     consoleDiv.textContent += text + '\n';
     consoleDiv.scrollTop = consoleDiv.scrollHeight;
 }window.writeToConsole = writeToConsole;
 
+//logic function
 function handleCommand(rawInput) {
     const command = rawInput.trim();
     const lowerCommand = command.toLowerCase();
@@ -87,10 +90,10 @@ function handleCommand(rawInput) {
     if (lowerCommand === 'exit') {
         if (currentFeature === 'home' || currentFeature === 'exit'){
         writeToConsole('No feature is currently active.')
-    }
+        }
         else {currentFeature = 'exit';
         writeToConsole('Feature closed successfully.');        
-    }return;
+        }return;
     }
     if (currentFeature === 'calculator') {
         calculator(command);
@@ -100,7 +103,7 @@ function handleCommand(rawInput) {
     writeToConsole('Unknown command or wrong context. Type "help" for assistance.');
 }
 
-
+//input logic
 inputField.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
         const command = inputField.value;
