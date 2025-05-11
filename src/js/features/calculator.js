@@ -23,8 +23,8 @@ export function calculator(expression) {
 export const calcUi = `
 +------------------------------------------------------------------------+
 |========================================================================|
-| Entered Calculator mode. Type "exit" to leave.                         |
-| Type "exit" to leave.                                                  |
+| Entered Calculator mode.                                               |
+|                                                                        |
 | <==Operations==>                                                       |
 | [+: Addition                                                         ] |
 | [-: Subtraction. Can also use to indicate a negative numerical value.] |
