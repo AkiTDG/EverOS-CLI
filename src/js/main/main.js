@@ -42,4 +42,4 @@ inputField.addEventListener('keydown', function(event) {
     }
 });
 
-writeToConsole(homeMenu);
+writeToConsole(homeMenu());
