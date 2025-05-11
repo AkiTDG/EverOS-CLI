@@ -43,7 +43,7 @@ export const helpMenu = `
 |=================================================================================|
 | Available commands:                                                             |
 | [nav [feature]: Navigate to a feature (e.g. nav calc)         ]                 |
-| [xexit: Exit current feature(This command is deprecated)      ]                 |
+| [exit: (This command is deprecated)Exit current feature       ]                 |
 | [nav home: Go to home menu                                    ]                 |
 | [clear: Clear the console                                     ]                 |                                           
 |                                                                                 |                                           
