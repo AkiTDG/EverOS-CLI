@@ -33,7 +33,7 @@ inputField.addEventListener('keydown', function(event) {
             writeToConsole,
             calculator,
             consoleDiv,
-            homeMenu(),
+            homeMenu: homeMenu(),
             helpMenu,
             calcUi
         });
