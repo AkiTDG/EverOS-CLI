@@ -54,6 +54,9 @@ export function handleCommand(rawInput, context) {
                 currentFeatureSetter('Day/Time converter');
                 writeToConsole('This feature is under implementation');
                 break;
+            case 'secret':
+                currentFeatureSetter('unknown');
+                window.location.href = 'https://tinyurl.com/miku-miku-miku';
             default:
                 writeToConsole('Unknown feature. Type "help" for available commands.');
         }
