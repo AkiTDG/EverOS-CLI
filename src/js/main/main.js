@@ -112,6 +112,10 @@ function handleCommand(rawInput) {
             writeToConsole(homeMenu);
             return;
         }
+         if (lowerCommand === 'help') {
+            writeToConsole(helpText);
+            return;
+        }
         if (currentFeature === 'calculator') {
             calculator(command);
             return;
@@ -121,6 +125,9 @@ function handleCommand(rawInput) {
     }  
 writeToConsole('Unknown command or wrong context. Type "help" for assistance.');          
 }    
+
+ 
+
 //input logic
 inputField.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
