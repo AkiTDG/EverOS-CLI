@@ -1,16 +1,13 @@
 
 export function handleCommand(rawInput, context) {
     const {
-        currentFeatureGetter,
-        currentFeatureSetter,
-        writeToConsole,       
-        consoleDiv,
-        homeMenu,
-        helpMenu,
+        currentFeatureGetter,currentFeatureSetter,
+        writeToConsole,consoleDiv,
+        homeMenuhelpMenu,,       
         calculator,calcUi,
         temperatureConverter,resetTempMode,tcUi
-     } = context;   
-    
+     } = context; 
+
     const command = rawInput.trim();
     const lowerCommand = command.toLowerCase();
     if (command === '') return;
