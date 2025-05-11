@@ -1,10 +1,19 @@
 import {calculator,calcUi} from '../features/calculator.js';
-
+import {handleCommand} from './commandHandler.js';
+import {asciitext,homeMenu,helpMenu} from './mainUI.js';
 //backbone
 const consoleDiv = document.getElementById('console');
 const inputField = document.getElementById('input');
+/*let currentFeature = 'home';*/
 let currentFeature = 'home';
- 
+function getCurrentFeature() {
+    return currentFeature;
+}
+function setCurrentFeature(value) {
+    currentFeature = value;
+}
+
+/*
 //main UI
 const asciitext = `
  /$$$$$$$$                              /$$$$$$   /$$$$$$ 
@@ -50,7 +59,7 @@ const helpText = `
 | in its equivalents (e.g., days to hours and vice-versa)                         |
 |=================================================================================|                                                                                                                       
 +---------------------------------------------------------------------------------+ 
-`;
+`;*/
 
 //U.I. backbone
 function writeToConsole(text) {
@@ -60,7 +69,7 @@ function writeToConsole(text) {
 }window.writeToConsole = writeToConsole;
 
 //logic function
-function handleCommand(rawInput) {
+/*function handleCommand(rawInput) {
     const command = rawInput.trim();
     const lowerCommand = command.toLowerCase();
     if (command === '') return;
@@ -118,7 +127,7 @@ function handleCommand(rawInput) {
     }
     
 writeToConsole('Unknown command or wrong context. Type "help" for assistance.');          
-}    
+}*/
 
  
 
@@ -129,10 +138,21 @@ inputField.addEventListener('keydown', function(event) {
         if (command.trim() !== '') {
             writeToConsole('>> ' + command);
         }
-        handleCommand(command);
+        handleCommand(command, {
+            currentFeatureGetter: getCurrentFeature,
+            currentFeatureSetter: setCurrentFeature,
+            writeToConsole,
+            calculator,
+            consoleDiv,
+            homeMenu,
+            helpMenu,
+            calcUi
+        });
+
         inputField.value = '';
     }
 });
+
 
 writeToConsole(asciitext);
 writeToConsole('+--------------------------------------------------+');
