@@ -1,10 +1,5 @@
-export function homeMenu(){
-   const date = new Date().toLocaleDateString();
-    const time = new Date().toLocaleTimeString(undefined, {
-        hour: '2-digit',
-        minute: '2-digit'
-    });
-   return `
+export function homeMenu(){const date = new Date().toLocaleDateString();const time = new Date().toLocaleTimeString(undefined, {hour: '2-digit', minute: '2-digit'});
+return `
  /$$$$$$$$                              /$$$$$$   /$$$$$$ 
 | $$_____/                             /$$__  $$ /$$__  $$
 | $$    /$$    /$$ /$$$$$$   /$$$$$$  | $$  \\ $$| $$  \\__/
