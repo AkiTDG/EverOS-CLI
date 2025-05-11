@@ -23,7 +23,7 @@ export function calculator(expression) {
 export const calcUi = `
 +------------------------------------------------------------------------+
 |========================================================================|
-| Entered Calculator mode.                                               |
+| Mathematical Calculator.                                               |
 |                                                                        |
 | <==Operations==>                                                       |
 | [+: Addition                                                         ] |
