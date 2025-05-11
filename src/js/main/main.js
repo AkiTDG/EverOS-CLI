@@ -105,30 +105,22 @@ function handleCommand(rawInput) {
         }
         return;
     }
-    if (lowerCommand === 'clear') {
-        consoleDiv.textContent = '';
-        return;
-    }
-    if (lowerCommand === 'help') {
-        writeToConsole(helpText);
-        return;
-    }
-    if (lowerCommand === 'exit') {
-        if (currentFeature === 'home' || currentFeature === 'exit'){
-        writeToConsole('No feature is currently active.')
+    if (currentFeature !== 'home') {
+        if (lowerCommand === 'exit') {
+            currentFeature = 'home';
+            writeToConsole('Feature closed successfully. Returning to home.');
+            writeToConsole(homeMenu);
+            return;
         }
-        else {currentFeature = 'exit';
-        writeToConsole('Feature closed successfully.');        
-        }return;
-    }
-    if (currentFeature === 'calculator') {
-        calculator(command);
+        if (currentFeature === 'calculator') {
+            calculator(command);
+            return;
+        }
+        writeToConsole('You must exit the current feature before using other commands.');
         return;
-    }
-
-    writeToConsole('Unknown command or wrong context. Type "help" for assistance.');
-}
-
+    }  
+writeToConsole('Unknown command or wrong context. Type "help" for assistance.');          
+}    
 //input logic
 inputField.addEventListener('keydown', function(event) {
     if (event.key === 'Enter') {
