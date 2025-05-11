@@ -51,7 +51,7 @@ export const helpMenu = `
 | note: Features with * are under implementation                                  |                                            
 | [1. Simple Calculator (calc)]: Calculates simple mathematical problems          |                                            
 | [2. Metric system converter (msc)]*: Calculates any metric system measurement   |
-| [3. Temperature converter (tc)]*: Converts degree to fahrenheit & vice versa    |
+| [3. Temperature converter (tc)]: Converts degree to fahrenheit & vice versa     |
 | [4. Day/Time converter (dtc)]*: Calculates the measurement of time              |                                                                               
 | in its equivalents (e.g., days to hours and vice-versa)                         |
 |=================================================================================|                                                                                                                       
