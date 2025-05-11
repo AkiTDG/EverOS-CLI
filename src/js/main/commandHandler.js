@@ -3,7 +3,7 @@ export function handleCommand(rawInput, context) {
     const {
         currentFeatureGetter,currentFeatureSetter,
         writeToConsole,consoleDiv,
-        homeMenu,helpMenu,,       
+        homeMenu,helpMenu,      
         calculator,calcUi,
         temperatureConverter,resetTempMode,tcUi
      } = context; 
