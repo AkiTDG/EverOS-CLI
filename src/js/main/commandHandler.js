@@ -14,7 +14,7 @@ export function handleCommand(rawInput, context) {
     const command = rawInput.trim();
     const lowerCommand = command.toLowerCase();
     if (command === '') return;
-    if (lowerCommand === 'exit') {
+    /*if (lowerCommand === 'exit') {
         if (currentFeatureGetter() === 'home') {
             writeToConsole('No feature is currently active.');
         } else {
@@ -22,7 +22,7 @@ export function handleCommand(rawInput, context) {
             writeToConsole('Feature closed successfully.');
         }
         return;
-    }
+    }*/
     if (lowerCommand === 'clear') {
         consoleDiv.textContent = '';
         return;
