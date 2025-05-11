@@ -1,3 +1,4 @@
+
 export function handleCommand(rawInput, context) {
     const {
         currentFeatureGetter,
@@ -7,7 +8,7 @@ export function handleCommand(rawInput, context) {
         calcUi,
         consoleDiv,
         homeMenu,
-        helpText
+        helpMenu
     } = context;
 
     const command = rawInput.trim();
@@ -27,9 +28,8 @@ export function handleCommand(rawInput, context) {
         consoleDiv.textContent = '';
         return;
     }
-
     if (lowerCommand === 'help') {
-        writeToConsole(helpText);
+        writeToConsole(helpMenu);
         return;
     }
     if (lowerCommand.startsWith('nav ')) {
@@ -38,9 +38,6 @@ export function handleCommand(rawInput, context) {
             case 'home':
                 currentFeatureSetter('home');
                 writeToConsole(homeMenu);
-                break;
-            case 'help':
-                writeToConsole(helpText);
                 break;
             case 'calc':
                 currentFeatureSetter('calculator');
