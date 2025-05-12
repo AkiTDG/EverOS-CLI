@@ -45,7 +45,7 @@ inputField.addEventListener("keydown", function (event)
 		helpMenu: helpMenu,
 		calculator: calculator,calcUi: calcUi,
 		temperatureConverter: temperatureConverter,tcUi: tcUi,resetTempMode: resetTempMode,
-		measurementConverter: measurementConverter, mscUI:mscUI
+		measurementConverter: measurementConverter(), mscUI:mscUI
 		})
 		inputField.value = ""
 	}
