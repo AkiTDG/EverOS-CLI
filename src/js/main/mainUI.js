@@ -1,11 +1,5 @@
-
-export function homeMenu(){
-   const date = new Date().toLocaleDateString();
-    const time = new Date().toLocaleTimeString(undefined, {
-        hour: '2-digit',
-        minute: '2-digit'
-    });
-   return `
+export function homeMenu(){const date = new Date().toLocaleDateString();const time = new Date().toLocaleTimeString(undefined, {hour: '2-digit',minute: '2-digit'});
+return `
  /$$$$$$$$                              /$$$$$$   /$$$$$$ 
 | $$_____/                             /$$__  $$ /$$__  $$
 | $$    /$$    /$$ /$$$$$$   /$$$$$$  | $$  \\ $$| $$  \\__/
@@ -13,7 +7,7 @@ export function homeMenu(){
 | $$__/ \\  $$/$$/| $$$$$$$$| $$  \\__/ | $$  | $$ \\____  $$
 | $$     \\  $$$/ | $$_____/| $$       | $$  | $$ /$$  \\ $$
 | $$$$$$$$\\  $/  |  $$$$$$$| $$       |  $$$$$$/|  $$$$$$/
-|________/ \\_/   \\_______/|__/        \\______/  \\______/
+|________/ \\_/    \\_______/|__/       \\_______/  \\______/
 
 +--------------------------------------------------+
 |==================================================|
@@ -28,9 +22,9 @@ export function homeMenu(){
 | Features & (command name):                 |
 |                                            |
 | [1.Simple Calculator          (calc)]      |
-| [2.Metric system converter     (msc)]      |
-| [3.Temperature converter        (tc)]      |
-| [4.Day/Time converter          (dtc)]      |
+| [2.Temperature converter        (tc)]      |
+| [3.Day/Time converter          (dtc)]      |
+|                                            |
 |                                            |
 | Type "help" for important commands         |
 | Press F5 (Or refresh icon) to restart OS   |
@@ -51,10 +45,10 @@ export const helpMenu = `
 | Feature functions:                                                              |                                           
 | note: Features with * are under implementation                                  |                                            
 | [1. Simple Calculator (calc)]: Calculates simple mathematical problems          |                                            
-| [2. Metric system converter (msc)]*: Calculates any metric system measurement   |
 | [3. Temperature converter (tc)]: Converts degree to fahrenheit & vice versa     |
-| [4. Day/Time converter (dtc)]*: Calculates the measurement of time              |                                                                               
-| in its equivalents (e.g., days to hours and vice-versa)                         |
+| [4. Day/Time converter (dtc)]*: Calculates the measurement of time              |
+| in its equivalents (e.g., days to hours and vice-versa)                         |                                                                               
+|                                                                                 |
 |=================================================================================|                                                                                                                       
 +---------------------------------------------------------------------------------+ 
 `;
