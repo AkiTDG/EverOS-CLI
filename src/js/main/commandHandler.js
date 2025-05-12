@@ -36,7 +36,7 @@ export function handleCommand(rawInput, context)
 			writeToConsole(calcUi);
 			break;
 		case "msc":
-			currentFeatureSetter("Measurement system converter");
+			currentFeatureSetter("Measurement converter");
 			writeToConsole(mscUI);
 			break;
 		case "tc":
@@ -70,7 +70,7 @@ export function handleCommand(rawInput, context)
 		writeToConsole(output);
 		return
 	}
-	if (currentFeatureGetter() === "Measurement system converter"){
+	if (currentFeatureGetter() === "Measurement converter"){
 		const output = measurementConverter(command);
 		writeToConsole(output);
 		return
