@@ -71,8 +71,7 @@ export function handleCommand(rawInput, context)
 		return
 	}
 	if (currentFeatureGetter() === "Measurement converter"){
-		const output = measurementConverter(command);
-		writeToConsole(output);
+		measurementConverter(command);
 		return
 	}
 	writeToConsole('Unknown command or wrong context. Type "help" for assistance.')
