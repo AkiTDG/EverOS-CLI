@@ -1,4 +1,5 @@
 let bmiState = {
+  isActive: false,
   step :0,
   name: "",
   heightInput: "",
@@ -57,9 +58,9 @@ function BMIformula(weight, height) {
 }
 //self-explanatory
 function BMIClassifier(bmi) {
-  if (bmi < 18.5 || bmi < 19) return "[Underweight]"
-  if (bmi >= 18.5 && bmi < 25) return "[Normal weight]"
-  if (bmi >= 25 && bmi < 30) return "[Overweight]"
+  if (bmi < 18.5) return "[Underweight]"
+  if (bmi >= 18.5 && bmi < 24.5) return "[Normal weight]"
+  if (bmi >= 25 && bmi < 29.5) return "[Overweight]"
   if (bmi >= 30) return "[Obese]"
   return "[Unknown]"
 }
@@ -90,6 +91,7 @@ const receiptContent = `
 |Date Taken: ${date.toUpperCase().padEnd(27)}|
 |=======================================|
 |${'[This receipt is made on EverOS]'.padEnd(39)}|
+|${'[Do not edit]'.padEnd(39)}|
 |=======================================|
 +---------------------------------------+`
 const blob = new Blob([receiptContent], { type: 'text/plain' })
@@ -108,6 +110,7 @@ URL.revokeObjectURL(url)
 export function BMICalculator(input, writeToConsole) {
   switch (bmiState.step) {
     case 0:
+      bmiState.isActive = true
       writeToConsole("[Enter your name]:")
       bmiState.step = 1
       break
@@ -145,7 +148,7 @@ export function BMICalculator(input, writeToConsole) {
       if (input.toLowerCase() === 'y') {
         receipt(bmiState.name, bmiState.heightInput, bmiState.weightInput, bmiState.result)
         writeToConsole("[Thank you for using this feature.]\n")
-      bmiState = { step: 0 }
+        bmiState = { step: 0 }
       }
       else if (input.toLowerCase() === 'n') {
         writeToConsole("[Thank you for using this feature.]\n")
@@ -159,7 +162,7 @@ export function BMICalculator(input, writeToConsole) {
   }
 }
 
-export const bmiUi = `
+export const bmiUI = `
 +------------------------------------------------+
 |================================================|
 | Body Mass Index (BMI) Calculator               |

@@ -1,0 +1,111 @@
+let conversionMode = null
+export function resetConvMode() {
+conversionMode = null
+}
+function daysconverter(day){
+const hour=day*24
+const minute=hour*60
+const second=minute*60
+return {hour,minute,second}
+}
+function hoursconverter(hour){
+const day=hour/24
+const minute=hour*60
+const second=minute*60
+return {day,minute,second}
+}
+function minutesconverter(minute){
+const day=minute/1440
+const hour=minute/60
+const second=minute*60
+return {day,hour,second}
+}
+function secondsconverter(second){
+const day=second/86400 
+const hour=second/3600
+const minute=second/60
+return {day,hour,minute}
+}
+
+export function converterLogic(input, writeToConsole) {
+  const trimmedInput = input.trim().toLowerCase()
+
+  if (trimmedInput.startsWith("convm ")) {
+    const mode = trimmedInput.substring(6)
+    switch (mode) {
+      case "day":
+        conversionMode = "day"
+        writeToConsole("Conversion mode set to DAYS. Enter number of days:")
+        break
+      case "hr":
+        conversionMode = "hour"
+        writeToConsole("Conversion mode set to HOURS. Enter number of hours:")
+        break
+      case "min":
+        conversionMode = "minute"
+        writeToConsole("Conversion mode set to MINUTES. Enter number of minutes:")
+        break
+      case "sec":
+        conversionMode = "second"
+        writeToConsole("Conversion mode set to SECONDS. Enter number of seconds:")
+        break
+      default:
+        writeToConsole("[Convm Error: Unknown conversion mode.]")
+        break
+    }
+    return
+  }
+
+  if (conversionMode === null) {
+    writeToConsole("[Convm Error: No conversion mode set. Use 'convm day/hour/minute/second']")
+    return
+  }
+
+  const value = parseFloat(trimmedInput)
+  if (isNaN(value)) {
+    writeToConsole("[Convm Error: Invalid numeric input.]")
+    return
+  }
+
+  let result
+ const lineWidth = 80
+
+switch (conversionMode) {
+  case "day":
+    result = daysconverter(value)
+    const dayLine = `${value} day(s) = ${result.hour} hour(s), ${result.minute} minute(s), ${result.second} second(s)`
+    writeToConsole(
+      "+" + "-".repeat(lineWidth) + "+\n" +
+      "| " + dayLine.padEnd(lineWidth) + " |\n" +
+      "+" + "-".repeat(lineWidth) + "+"
+    )
+    break
+
+  // Similarly for other cases:
+  case "hour":
+    result = hoursconverter(value)
+    const hourLine = `${value} hour(s) = ${result.day} day(s), ${result.minute} minute(s), ${result.second} second(s)`
+    writeToConsole(
+      "+" + "-".repeat(lineWidth) + "+\n" +
+      "| " + hourLine.padEnd(lineWidth) + " |\n" +
+      "+" + "-".repeat(lineWidth) + "+"
+    )
+    break
+}
+
+
+}
+
+export const dtcUI = `
++-----------------------------------------------------------+
+|===========================================================|
+| Day Time Converter                                        |
+|                                                           |
+| <==Operations==>                                          |
+| [Type 'convm day' to access day-time conversion mode]     `.padEnd(59) + `|
+| [Type 'convm hr' to access hour-time conversion mode]     `.padEnd(59) + `|
+| [Type 'convm min' to access minute-time conversion mode]  `.padEnd(59) + `|
+| [Type 'convm sec' to access second-time conversion mode]  `.padEnd(59) + `|
+|===========================================================| 
++-----------------------------------------------------------+ 
+`

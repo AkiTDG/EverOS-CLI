@@ -19,7 +19,7 @@ export function calculator(expression) {
     }
 } 
 //calc menu
-export const calcUi = `
+export const calcUI = `
 +------------------------------------------------------------------------+
 |========================================================================|
 | Mathematical Calculator                                                |

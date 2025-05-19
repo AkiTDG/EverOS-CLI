@@ -32,7 +32,7 @@ export function temperatureConverter(input) {
     }
 }
 
-export const tcUi = `
+export const tcUI = `
 +----------------------------------------------------------------------+
 |======================================================================|
 | Temperature Converter                                                |
