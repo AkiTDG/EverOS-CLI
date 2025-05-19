@@ -13,7 +13,7 @@ h1{
 #console {
     width: 50%;
     height: 500px;
-    max-width: 100%;
+    max-width: 80vw;
     border: 1px solid #00ff00;
     padding: 10px;
     overflow-x: auto;
