@@ -20,7 +20,7 @@ export function homeMenu(currentTime = "--:--:--"){
 
 +--------------------------------------------+
 |============================================|
-|        =======[Welcome to EverOS!]=======  |
+|     =======[Welcome to EverOS!]=======     |
 | Today is:   ${date.padEnd(31)}|
 | Time check: <span id="time-display">--:--</span>                    |
 |============================================|
