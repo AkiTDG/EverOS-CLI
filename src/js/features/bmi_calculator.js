@@ -1,4 +1,5 @@
-let bmiState = {
+function bmiValues(){
+  return {
   isActive: false,
   step :0,
   name: "",
@@ -6,7 +7,9 @@ let bmiState = {
   weightInput: "",
   height: 0,
   weight: 0,
+  }
 }
+let bmiState = bmiValues()
 //for height conversion
 const m2cm = 0.01
 const m2in = 0.0254
@@ -59,8 +62,8 @@ function BMIformula(weight, height) {
 //self-explanatory
 function BMIClassifier(bmi) {
   if (bmi < 18.5) return "[Underweight]"
-  if (bmi >= 18.5 && bmi < 24.5) return "[Normal weight]"
-  if (bmi >= 25 && bmi < 29.5) return "[Overweight]"
+  if (bmi >= 18.5 && bmi < 24.9) return "[Normal weight]"
+  if (bmi >= 25 && bmi < 29.9) return "[Overweight]"
   if (bmi >= 30) return "[Obese]"
   return "[Unknown]"
 }
@@ -147,18 +150,36 @@ export function BMICalculator(input, writeToConsole) {
     case 4:
       if (input.toLowerCase() === 'y') {
         receipt(bmiState.name, bmiState.heightInput, bmiState.weightInput, bmiState.result)
-        writeToConsole("[Thank you for using this feature.]\n")
-        bmiState = { step: 0 }
+        writeToConsole("[Thank you for using this feature. Your receipt is now downloaded.]\n")
       }
       else if (input.toLowerCase() === 'n') {
         writeToConsole("[Thank you for using this feature.]\n")
-        bmiState = { step: 0 }
       }
-      else {writeToConsole("[Enter y or n only.]")}
+      else {
+        writeToConsole("[Enter y or n only.]")
+      return
+      }
+      writeToConsole("[Would you like to enter a new field? (y/n)]:")
+      bmiState.step = 5
+      break
+    case 5:
+      if (input.toLowerCase() === 'y') {
+        writeToConsole("[Enter your name]:")
+        bmiState.step = 1
+        bmiState = createBmiState()  
+        return  
+      } 
+      else if (input.toLowerCase() === 'n') {
+       writeToConsole("[Thank you for using this feature.]\n")
+       bmiState = createBmiState()
+       return
+      } 
+      else {writeToConsole("[Enter y or n only.]")
+      } 
       break
     default:
-      writeToConsole("[Unexpected state. Resetting...]")
-      bmiState = { step: 0 }
+       writeToConsole("[Unexpected state. Resetting...]")
+       bmiState = createBmiState()
   }
 }
 
