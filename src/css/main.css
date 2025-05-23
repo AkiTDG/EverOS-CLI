@@ -1,11 +1,12 @@
 
-body {
+html,body {
     background-color: black;
     color: #00ff00;
     font-family: monospace;
     padding: 20px;
     margin: 0;    
     box-sizing: border-box;
+    scrollbar-color: #00ff00 black;
 }
 h1{font-size: 40px;}
 
