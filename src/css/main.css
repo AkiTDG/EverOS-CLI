@@ -1,14 +1,15 @@
+
 body {
     background-color: black;
     color: #00ff00;
     font-family: monospace;
     padding: 20px;
-    margin: 0;
+    margin: 0;    
     box-sizing: border-box;
 }
-h1{
-    font-size: 40px;
-}
+h1{font-size: 40px;}
+
+h2{font-size: 20px;}
 
 #console {
     width: 50%;
@@ -34,19 +35,38 @@ h1{
 
 input[type="text"] {
     width: 50%;
-    margin: 0 auto;
+    margin: auto;
     padding: 10px;
-    margin-top: 1px;
+    margin-top: 1px; 
     display: block;
     background-color: black;
-    color: lime;
-    border: 1px solid lime;
+    color:  #00ff00;
+    border: 1px solid  #00ff00;
     font-family: monospace;
     font-size: 16px;
     box-sizing: border-box;
 }
 
 input[type=text]:focus {
-  border: 1px solid lime;
+  border: 1px solid  #00ff00;
   outline: none;
+}
+
+button{
+  border: 1px solid  #00ff00;
+  background-color: black;
+  color: #00ff00;
+  font-size: 15px; 
+  font-family: monospace;
+}
+button:hover{
+  border: 1px solid  black;
+  background-color: #00ff00;
+  color: black;
+  font-size: 15px; 
+  font-family: monospace;  
+}
+
+#button-containter{
+    margin-top: 10px;
 }
