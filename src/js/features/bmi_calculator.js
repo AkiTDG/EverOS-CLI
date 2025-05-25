@@ -189,8 +189,9 @@ export const bmiUI = `
 | Body Mass Index (BMI) Calculator               |
 |                                                |
 | <==Operations==>                               |
-| [Enter name first]                             |
+| [Enter your name first]                        |
 | [Enter height next (Supports: cm, m, ft & in)] |
 | [Then enter weight (Supports: kg & lbs)]       |
 |================================================|
++------------------------------------------------+`
 +------------------------------------------------+`
