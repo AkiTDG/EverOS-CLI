@@ -42,8 +42,12 @@ export function PingPong() {
   let ballY = canvas.height / 2
   let ballSpeedX = 3
   let ballSpeedY = 2
+  let ballmvntInterval = 0
   let playerScore = 0
   let aiScore = 0
+  let aiCanMove = true
+  let aiLastToggle = performance.now()
+  let aiToggleDuration = 5000
   let upPressed = false
   let downPressed = false
   let gameEnded = false
@@ -86,16 +90,34 @@ export function PingPong() {
     ctx.fillText(playerScore, canvas.width / 4, 30)
     ctx.fillText(aiScore, (3 * canvas.width) / 4, 30)
   }
+
   function moveAI() {
-    const target = ballY - paddleHeight / 2 + ballSize / 2
-    aiY += (target - aiY) * 0.06
-  }
+    const now = performance.now()
+    if (now - aiLastToggle >= aiToggleDuration) {
+      aiCanMove = !aiCanMove
+      aiLastToggle = now
+      aiToggleDuration = aiCanMove
+        ? 3000 + Math.random() * 3000  // Move for 3–6 seconds
+        : 800 + Math.random() * 800    // Pause for 0.8–1.6 seconds
+    }
+    if (aiCanMove) {
+      const target = ballY - paddleHeight / 2 + ballSize / 2
+      const dy = target - aiY
+      const baseSpeed = 3 + aiScore * 0.2
+      const isDashing = Math.random() < 0.4  // 40% chance to dash
+      const moveSpeed = isDashing ? baseSpeed * 2 : baseSpeed
+        if (Math.abs(dy) > moveSpeed) {
+          aiY += moveSpeed * Math.sign(dy)
+        }    
+        else {
+          aiY += dy
+        }
+    }
+}
 
   function resetBall(direction = 1) {
-    ballX = direction > 0
-      ? canvas.width - paddleOffset - paddleWidth - ballSize - 5
-      : paddleOffset + paddleWidth + 5
-    ballY = Math.random() * (canvas.height - ballSize)
+    ballX = canvas.width / 2 - ballSize / 2
+    ballY = canvas.height / 2 - ballSize / 2
     ballSpeedX = direction * 3
     ballSpeedY = 2 * (Math.random() > 0.5 ? 1 : -1)
   }
@@ -124,11 +146,12 @@ export function PingPong() {
 
     if (upPressed && playerY > 0) playerY -= 5
     if (downPressed && playerY + paddleHeight < canvas.height) playerY += 5
-
     moveAI()
 
-    ballX += ballSpeedX
-    ballY += ballSpeedY
+    if (performance.now() >= ballmvntInterval) {
+      ballX += ballSpeedX
+      ballY += ballSpeedY
+    }
 
     if (ballY <= 0 || ballY + ballSize >= canvas.height) ballSpeedY = -ballSpeedY
 
@@ -177,4 +200,3 @@ export function PingPong() {
 
   loop()
 }
-
