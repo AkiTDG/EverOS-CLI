@@ -27,16 +27,16 @@ export function homeMenu(){
 +--------------------------------------------+
 |============================================|
 | Features & (command name):                 |
-| +--------------------------------------+   |
-| | A. Calculators                       |   |
-| |    BMI calculator              (bmi) |   |
-| |    Simple calculator          (calc) |   |
-| | B. Converters                        |   |
-| |    Day/Time converter          (dtc) |   |
-| |    Temperature converter        (tc) |   |
-| | C. Games                             |   |
-| |    Ping pong                  (pong) |   |
-| +--------------------------------------+   |
+| +---------------------------------------+  |
+| | A. Calculators                        |  |
+| |    BMI calculator...............(bmi) |  |
+| |    Simple calculator...........(calc) |  |
+| | B. Converters                         |  |
+| |    Day/Time converter...........(dtc) |  |
+| |    Temperature converter.........(tc) |  |
+| | C. Games                              |  |
+| |    Ping pong...................(pong) |  |
+| +---------------------------------------+  |
 |                                            |
 | Type "help" for important commands         |
 | Press F5 (Or refresh icon) to restart OS   |
@@ -70,8 +70,7 @@ export const helpMenu = `
 |      and vice-versa                                                     |
 |                                                                         |
 | C. Games:                                                               |
-| [^1. Ping Pong (pong)]: A simple pong game vs AI (1st to 20 wins)       |
-|                                                                         |
+| [^1. Ping Pong (pong)]: A simple pong game vs AI (1st to score 20 wins) |
 |=========================================================================|
 +-------------------------------------------------------------------------+
 `
