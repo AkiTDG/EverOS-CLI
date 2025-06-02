@@ -1,5 +1,8 @@
 let keydownHandler, keyupHandler
 let pingPongAnimationId, pingPongLoop
+export let playerScore = 0
+export let aiScore = 0
+export let gameEnded = false
 
 export function cleanupPingPong() {
   const canvas = document.getElementById("pongCanvas")
@@ -13,6 +16,20 @@ export function cleanupPingPong() {
   if (keydownHandler) document.removeEventListener("keydown", keydownHandler)
   if (keyupHandler) document.removeEventListener("keyup", keyupHandler)
 }
+
+export function endGame() {
+    if (gameEnded) return gameEnded = true
+    const gameOverScreen = `
++----------------------------------------------------+
+|===[ GAME OVER ]===                                 |
+|                                                    |
+|Final Score: Player ${playerScore} - ${aiScore} COM                       |
+|Play again?      [Type 'nav pong']                  |
+|Return home?     [Type 'nav home']                  |
++----------------------------------------------------+`
+    writeToConsole(gameOverScreen)
+    cleanupPingPong()
+  }
 
 export function PingPong() {
   const consoleDiv = document.getElementById("console")
@@ -54,15 +71,13 @@ export function PingPong() {
   let ballSpeedX = 3
   let ballSpeedY = 2
   let ballmvntInterval = 0
-  let playerScore = 0
-  let aiScore = 0
+  
   let aiCanMove = true
   let aiLastToggle = performance.now()
   let aiToggleDuration = 5000
   let upPressed = false
   let downPressed = false
-  let gameEnded = false
-
+  
 
   keydownHandler = function (e) {
   if (e.key === "ArrowUp") upPressed = true
@@ -223,19 +238,6 @@ export function PingPong() {
     if (!gameEnded) pingPongAnimationId = requestAnimationFrame(loop)
   }
 
-  function endGame() {
-    if (gameEnded) return
-    gameEnded = true
-    const gameOverScreen = `
-+----------------------------------------------------+
-|===[ GAME OVER ]===                                 |
-|                                                    |
-|Final Score: Player ${playerScore} - ${aiScore} COM                       |
-|Play again?      [Type 'nav pong']                  |
-|Return home?     [Type 'nav home']                  |
-+----------------------------------------------------+`
-    writeToConsole(gameOverScreen)
-    cleanupPingPong()
-  }
+  
   loop()
 }
