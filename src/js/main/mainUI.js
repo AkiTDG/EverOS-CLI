@@ -27,16 +27,16 @@ export function homeMenu(){
 +--------------------------------------------+
 |============================================|
 | Features & (command name):                 |
-| +---------------------------------------+  |
-| | A. Calculators                        |  |
-| |    BMI calculator...............(bmi) |  |
-| |    Simple calculator...........(calc) |  |
-| | B. Converters                         |  |
-| |    Day/Time converter...........(dtc) |  |
-| |    Temperature converter.........(tc) |  |
-| | C. Games                              |  |
-| |    Ping pong...................(pong) |  |
-| +---------------------------------------+  |
+| +----------------------------------------+ |
+| | A. Calculators                         | |
+| |    BMI calculator................(bmi) | |
+| |    Simple calculator............(calc) | |
+| | B. Converters                          | |
+| |    Day/Time converter............(dtc) | |
+| |    Temperature converter..........(tc) | |
+| | C. Games                               | |
+| |    Ping pong....................(pong) | |
+| +----------------------------------------+ |
 |                                            |
 | Type "help" for important commands         |
 | Press F5 (Or refresh icon) to restart OS   |
@@ -61,7 +61,7 @@ export const helpMenu = `
 |                                                                         |
 | A. Calculators:                                                         |
 | [1. Simple Calculator (calc)]: Calculates simple mathematical problems  |
-| [^2. BMI Calculator (bmi)]: Measures your Body Mass Index (BMI)         |
+| [2. BMI Calculator (bmi)]: Measures your Body Mass Index (BMI)          |
 |                                                                         |
 | B. Converters:                                                          |
 | [1. Day/Time Converter (dtc)]:converts time units                       |

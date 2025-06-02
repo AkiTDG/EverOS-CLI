@@ -5,7 +5,9 @@ import{calculator,calcUI} from "../features/calculator.js"
 import{temperatureConverter,resetTempMode,tcUI} from "../features/temperature_converter.js"
 import{BMICalculator,bmiUI,initBMI} from "../features/bmi_calculator.js"
 import{converterLogic,resetConvMode,dtcUI} from "../features/daytime_converter.js"
-import{PingPong,cleanupPingPong} from "../features/games/pong.js"
+import{PingPong,cleanupPingPong,endGame} from "../features/games/pong.js"
+import{runAnimation,stopHandlerKey,stopAnimation} from "../features/experimental/testASCIIAnimation.js"
+import{frames} from "../features/experimental/AnimationFrames.js"
 //backbone of the console OS
 const consoleDiv = document.getElementById("console")
 const inputField = document.getElementById("input")
@@ -54,7 +56,8 @@ if (event.key === "Enter")
 		temperatureConverter,resetTempMode,tcUI,
 		BMICalculator,initBMI,bmiUI,
 		converterLogic,resetConvMode,dtcUI
-	    ,PingPong,cleanupPingPong
+	    ,PingPong,cleanupPingPong,endGame
+		,runAnimation,stopHandlerKey,stopAnimation,frames
 	})
 	inputField.value=""
 	}
@@ -76,29 +79,29 @@ if (event.key === "End") {
 	if (currentFeature && currentFeature !== "Home") {
 		writeToConsole('\nExited feature successfully.')
 		setCurrentFeature("Home")
-	} else {
-		writeToConsole("\nYou can't exit in home/cleared screen or feature you just exited.")
-	}
+	} else {writeToConsole("\nYou can't exit in home/cleared screen or feature you just exited.")}
   }
 })
-
 //PROGRAM-SPECIFIC BUTTONS
 	document.getElementById("btn-del").addEventListener("click", () => {
 		if (getCurrentFeature() === "PingPong") cleanupPingPong()
+		stopAnimation()
     	setCurrentFeature("Home")
 		consoleDiv.textContent = ""
 		return
 	})
 	document.getElementById("btn-home").addEventListener("click", () => {	
 		if (getCurrentFeature() === "PingPong") cleanupPingPong()
+		stopAnimation()
    		setCurrentFeature("Home")
     	consoleDiv.innerHTML = homeMenu()
     	hometimeRenderer()
 	})
 	document.getElementById("btn-end").addEventListener("click", () => {
     const currentFeature = getCurrentFeature()
+	stopAnimation()
     	if (currentFeature && currentFeature !== "Home") {
-			if (currentFeature === "PingPong") cleanupPingPong()
+			if (currentFeature === "PingPong") endGame()	
         	writeToConsole('\nExited feature successfully.')
         	setCurrentFeature("Home")
     	} 	
@@ -110,7 +113,6 @@ if (event.key === "End") {
         	inputField.focus()
     	})
 	})
-
 //displays home menu at the startup
 hometimeRenderer()
 window.onload=function(){window.scrollTo(0,0)}
