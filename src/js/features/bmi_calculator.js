@@ -95,7 +95,7 @@ function receipt(name, height, weight, BMI) {
 //Initializer.Everytime you navigate to BMI, this will be the first step
 export function initBMI(writeToConsole) {
   bmiState = bmiValues()
-  writeToConsole("[Enter your name]:")
+  writeToConsole("\n[Enter your name]:")
 }
 //Whole BMI calculator workflow logic
 export function BMICalculator(input, writeToConsole) {
@@ -129,7 +129,7 @@ export function BMICalculator(input, writeToConsole) {
       }
       const bmi = BMIformula(bmiState.weight, bmiState.height)
       const status = BMIClassifier(bmi)
-      const result = `[${bmiState.name}, your BMI is ${bmi.toFixed(2)}-${status}]`
+      const result = `\n[${bmiState.name}, your BMI is ${bmi.toFixed(2)}-${status}]`
       writeToConsole(result)
       bmiState.result = `${bmi.toFixed(2)}-${status}`
       bmiState.step = 3
