@@ -36,7 +36,7 @@ export function handleCommand(rawInput, context)
 	}
 	if (lowerCommand === "exit") {
 		const currentFeature = currentFeatureGetter()
-		stopAnimation()
+		if (currentFeature === "Test Animation")stopAnimation()
 		if (!currentFeature || currentFeature === "Home") {
 			writeToConsole("\nYou can't exit in home/cleared screen or feature you just exited.")
 			return

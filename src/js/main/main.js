@@ -7,7 +7,6 @@ import{BMICalculator,bmiUI,initBMI} from "../features/bmi_calculator.js"
 import{converterLogic,resetConvMode,dtcUI} from "../features/daytime_converter.js"
 import{PingPong,cleanupPingPong,endGame} from "../features/games/pong.js"
 import{runAnimation,stopHandlerKey,stopAnimation} from "../features/experimental/testASCIIAnimation.js"
-import{frames} from "../features/experimental/AnimationFrames.js"
 //backbone of the console OS
 const consoleDiv = document.getElementById("console")
 const inputField = document.getElementById("input")
@@ -57,7 +56,7 @@ if (event.key === "Enter")
 		BMICalculator,initBMI,bmiUI,
 		converterLogic,resetConvMode,dtcUI
 	    ,PingPong,cleanupPingPong,endGame
-		,runAnimation,stopHandlerKey,stopAnimation,frames
+		,runAnimation,stopHandlerKey,stopAnimation
 	})
 	inputField.value=""
 	}
@@ -85,7 +84,7 @@ if (event.key === "End") {
 //PROGRAM-SPECIFIC BUTTONS
 	document.getElementById("btn-del").addEventListener("click", () => {
 		if (getCurrentFeature() === "PingPong") cleanupPingPong()
-		stopAnimation()
+		if (getCurrentFeature() === "Test Animation")stopAnimation()
     	setCurrentFeature("Home")
 		consoleDiv.textContent = ""
 		return
@@ -99,9 +98,9 @@ if (event.key === "End") {
 	})
 	document.getElementById("btn-end").addEventListener("click", () => {
     const currentFeature = getCurrentFeature()
-	stopAnimation()
     	if (currentFeature && currentFeature !== "Home") {
-			if (currentFeature === "PingPong") endGame()	
+			if (currentFeature === "PingPong") endGame()
+			if (currentFeature === "Test Animation")stopAnimation()	
         	writeToConsole('\nExited feature successfully.')
         	setCurrentFeature("Home")
     	} 	
