@@ -1,9 +1,10 @@
+//pingpong variables for key controls, game logic and scoring
 let keydownHandler, keyupHandler
 let pingPongAnimationId, pingPongLoop
 export let playerScore = 0
 export let aiScore = 0
 export let gameEnded = false
-
+//used to patch pingpong's buggy home screen after play
 export function cleanupPingPong() {
   const canvas = document.getElementById("pongCanvas")
   if (canvas && canvas.parentNode) canvas.parentNode.removeChild(canvas)
@@ -16,7 +17,7 @@ export function cleanupPingPong() {
   if (keydownHandler) document.removeEventListener("keydown", keydownHandler)
   if (keyupHandler) document.removeEventListener("keyup", keyupHandler)
 }
-
+//game over card,plus screen patch
 export function endGame() {
     if (gameEnded) return gameEnded = true
     const gameOverScreen = `
@@ -30,8 +31,9 @@ export function endGame() {
     writeToConsole(gameOverScreen)
     cleanupPingPong()
   }
-
+//game's whole logic
 export function PingPong() {
+//in-game screen
   const consoleDiv = document.getElementById("console")
   consoleDiv.innerHTML = `<canvas id="pongCanvas" width="525" height="400"></canvas>`
   const style = document.createElement("style")
@@ -54,7 +56,7 @@ export function PingPong() {
     }
   `
   document.head.appendChild(style)
-
+//game's touch control support for mobile users
   const canvas = document.getElementById("pongCanvas")
   canvas.addEventListener("touchmove", e => {
   e.preventDefault()
@@ -62,35 +64,31 @@ export function PingPong() {
   const rect = canvas.getBoundingClientRect()
   const y = touch.clientY - rect.top
   playerY = y - paddleHeight / 2
-
-  // Clamp within canvas
   if (playerY < 0) playerY = 0
   if (playerY + paddleHeight > canvas.height) playerY = canvas.height - paddleHeight
-}, { passive: false })
-
+  }, 
+  { passive: false })
   const ctx = canvas.getContext("2d")
-
+//in-game constants
   const paddleHeight = 80
   const paddleWidth = 10
   const paddleOffset = 15
   const ballSize = 20
   const maxScore = 20
-
+//in-game sprites
   let playerY = canvas.height / 2 - paddleHeight / 2
   let aiY = canvas.height / 2 - paddleHeight / 2
   let ballX = canvas.width / 2
   let ballY = canvas.height / 2
   let ballSpeedX = 3
   let ballSpeedY = 2
-  let ballmvntInterval = 0
-  
+  let ballmvntInterval = 0  
   let aiCanMove = true
   let aiLastToggle = performance.now()
   let aiToggleDuration = 5000
   let upPressed = false
   let downPressed = false
-  
-
+//key control logic
   keydownHandler = function (e) {
   if (e.key === "ArrowUp") upPressed = true
   if (e.key === "ArrowDown") downPressed = true
@@ -104,24 +102,23 @@ export function PingPong() {
     e.stopPropagation()
   }
 }
-
   keyupHandler = function(e) {
     if (e.key === "ArrowUp") upPressed = false
     if (e.key === "ArrowDown") downPressed = false
   }
-
+  document.addEventListener("keydown", keydownHandler)
+  document.addEventListener("keyup", keyupHandler)
+//in-game sprite's appearance and logic functiona
   function drawPaddle(x, y) {
     ctx.fillStyle = "#fff"
     ctx.fillRect(x, y, paddleWidth, paddleHeight)
   }
-
   function drawBall() {
     ctx.fillStyle = "lime"
     ctx.beginPath()
     ctx.arc(ballX + ballSize / 2, ballY + ballSize / 2, ballSize / 2, 0, Math.PI * 2)
     ctx.fill()
   }
-
   function drawNet() {
     ctx.setLineDash([10, 10])
     ctx.strokeStyle = "#d3d3d3"
@@ -131,14 +128,13 @@ export function PingPong() {
     ctx.stroke()
     ctx.setLineDash([])
   }
-
   function drawScore() {
     ctx.font = "20px Arial"
     ctx.fillStyle = "#d3d3d3"
     ctx.fillText(playerScore, canvas.width / 4, 30)
     ctx.fillText(aiScore, (3 * canvas.width) / 4, 30)
   }
-
+//AI opponent's movement logic
   function moveAI() {
     const now = performance.now()
     if (now - aiLastToggle >= aiToggleDuration) {
@@ -162,14 +158,14 @@ export function PingPong() {
         }
     }
 }
-
+//ball's direction after neither player scores
   function resetBall(direction = 1) {
     ballX = canvas.width / 2 - ballSize / 2
     ballY = canvas.height / 2 - ballSize / 2
     ballSpeedX = direction * 3
     ballSpeedY = 2 * (Math.random() > 0.5 ? 1 : -1)
   }
-
+//collision logic with the paddle
   function checkCollision() {
     if (
       ballX <= paddleOffset + paddleWidth &&
@@ -188,7 +184,7 @@ export function PingPong() {
       ballSpeedX = -Math.abs(ballSpeedX)
     }
   }
-
+//game flow/game logic handler
   function update() {
     if (gameEnded) return
 
@@ -217,7 +213,7 @@ export function PingPong() {
 
     checkCollision()
   }
-
+//renders the ball, paddle and dash indicator
   function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height)
     drawNet()
@@ -226,13 +222,11 @@ export function PingPong() {
     drawBall()
     drawScore()
   }
-
+//loopd the game flow 
   function loop() {
     update()
     draw()
     if (!gameEnded) pingPongAnimationId = requestAnimationFrame(loop)
   }
-
-  
   loop()
 }
