@@ -64,11 +64,13 @@ if (event.key === "Enter")
 //PC Button keys
 if (event.key === "Delete"){
 	setCurrentFeature("Home")
+	cleanupPingPong()
 	consoleDiv.textContent = ""
 	return
 }
 if (event.key === "Home"){
 	setCurrentFeature("Home")
+	cleanupPingPong()
 	consoleDiv.innerHTML=homeMenu()
 	hometimeRenderer()
 	return
@@ -76,6 +78,7 @@ if (event.key === "Home"){
 if (event.key === "End") {
 	const currentFeature = getCurrentFeature()
 	if (currentFeature && currentFeature !== "Home") {
+		if (getCurrentFeature() === "PingPong") endGame()
 		writeToConsole('\nExited feature successfully.')
 		setCurrentFeature("Home")
 	} else {writeToConsole("\nYou can't exit in home/cleared screen or feature you just exited.")}
@@ -84,14 +87,14 @@ if (event.key === "End") {
 //PROGRAM-SPECIFIC BUTTONS
 	document.getElementById("btn-del").addEventListener("click", () => {
 		if (getCurrentFeature() === "PingPong") cleanupPingPong()
-		if (getCurrentFeature() === "Test Animation")stopAnimation()
+		if (getCurrentFeature() === "Test Animation") stopAnimation()
     	setCurrentFeature("Home")
 		consoleDiv.textContent = ""
 		return
 	})
 	document.getElementById("btn-home").addEventListener("click", () => {	
 		if (getCurrentFeature() === "PingPong") cleanupPingPong()
-		stopAnimation()
+		if (getCurrentFeature() === "Test Animation") stopAnimation()
    		setCurrentFeature("Home")
     	consoleDiv.innerHTML = homeMenu()
     	hometimeRenderer()
