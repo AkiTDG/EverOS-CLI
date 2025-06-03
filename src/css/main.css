@@ -1,7 +1,5 @@
 
 html,body {
-    width: 100vw;
-    height: 100vh;
     background-color: black;
     color: #00ff00;
     font-family: monospace;
@@ -31,7 +29,7 @@ h2{font-size: 20px;}
     overflow-y: auto;
     white-space: pre; 
     font-family: monospace;
-    font-size: 16px; 
+    font-size: 16.5px; 
     box-sizing: border-box;  
     margin: auto;
     scrollbar-color: #00ff00 black;
@@ -53,7 +51,7 @@ input[type="text"] {
     color:  #00ff00;
     border: 1px solid  #00ff00;
     font-family: monospace;
-    font-size: 16px;
+    font-size: 16.5px;
     box-sizing: border-box;
 }
 
@@ -61,7 +59,7 @@ input[type=text]:focus {
   border: 1px solid  #00ff00;
   outline: none;
   width: 569px;
-  font-size: 16px;
+  font-size: 16.5px;
 }
 
 button{
@@ -87,17 +85,18 @@ button:hover{
     box-sizing: border-box;
 }
 
-#function-pad {
+#function-pad,.operand-pad  {
     width: 569px;
     margin: 5px auto;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 2px;
 }
 
-.button-row {
+.button-row,.operand-row {
     display: flex;
-    gap: 3px;
+    gap: 2px;
+    margin: 2px;
 }
 
 .wide-btn,.op-btn {
@@ -117,57 +116,7 @@ button:hover{
     color: black;
 }
 
-#controls-layout {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin-left: 20px;
-}
-
-.button-direction {
-    width: 150px;
-    height: 150px;
-    display: grid;
-    grid-template-areas:
-        ". up ."
-        "left . right"
-        ". down .";
-    gap: 5px;
-}
-
-.button-direction button {
-    width: 45px;
-    height: 45px;
-    font-size: 24px;
-    font-family: monospace;
-    border: 1px solid #00ff00;
-    background-color: black;
-    color: #00ff00;
-    cursor: pointer;
-}
-
-.button-direction button:hover {
-    background-color: #00ff00;
-    color: black;
-}
-
-#btn-up { grid-area: up; }
-#btn-down { grid-area: down; }
-#btn-left { grid-area: left; }
-#btn-right { grid-area: right; }
-
-.operand-pad {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    margin-right: 20px
-}
-
-.operand-row {
-    display: flex;
-    gap: 2px;
-}
-
 .op-btn.full {
     width: 100%;
 }
+
