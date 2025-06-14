@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 
 //main handler of command logic
 export function handleCommand(rawInput, context)
@@ -250,4 +250,4 @@ export function handleCommand(rawInput, context)
 	//throws error when command is unknown
 	writeToConsole('Unknown command. Type "help" for assistance.')
 }
->>>>>>> a9c77a03f4d37210db88dbe058f2ac3395318559
+
