@@ -1,7 +1,7 @@
 //function/const import in-order for the features to work
 import{handleCommand} from "./commandHandler.js"
 import{homeMenu,helpMenu,mainMenu} from "./mainUI.js"
-import{calculator,calcUI} from "../features/calculator.js"
+import{calculator,calcUI} from "../features/calculator/calculator.js"
 import{temperatureConverter,resetTempMode,tcUI} from "../features/temperature_converter.js"
 import{BMICalculator,bmiUI,initBMI} from "../features/bmi_calculator.js"
 import{converterLogic,resetConvMode,dtcUI} from "../features/daytime_converter.js"
