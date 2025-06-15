@@ -1,4 +1,4 @@
-import { supabase } from './supabaseCalc.js'
+import { supabase } from './supabaseCalcDB.js'
 export const calcUI = `╔═══════════════════════════════════════════╗
 ║ ░█▀▀░█▀█░█░░░█▀▀░█░█░█░░░█▀█░▀█▀░█▀█░█▀▄  ║
 ║ ░█░░░█▀█░█░░░█░░░█░█░█░░░█▀█░░█░░█░█░█▀▄  ║
