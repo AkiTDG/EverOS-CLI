@@ -3,7 +3,7 @@ import{handleCommand} from "./commandHandler.js"
 import{homeMenu,helpMenu,mainMenu} from "./mainUI.js"
 import{calculator,calcUI} from "../features/calculator/calculator.js"
 import{temperatureConverter,resetTempMode,tcUI} from "../features/temperature_converter.js"
-import{BMICalculator,bmiUI,initBMI} from "../features/bmi_calculator.js"
+import{BMICalculator,bmiUI,initBMI} from "../features/bmi_calculator/bmi_calculator.js"
 import{converterLogic,resetConvMode,dtcUI} from "../features/daytime_converter.js"
 import{PingPong,cleanupPingPong,endGame,pingpongUI,pongInit,ponghasStart} from "../features/games/pong.js"
 import{runAnimation,stopHandlerKey,stopAnimation} from "../features/experimental/testASCIIAnimation.js"
@@ -65,7 +65,7 @@ if (event.key === "Enter")
 //shortcut keys for "nav home" and "clear" commands
 //PC Button keys
 if (event.key === "Delete"){
-	setCurrentFeature("Home")
+	setCurrentFeature(currentFeature)
 	cleanupPingPong()
 	stopAnimation()
 	consoleDiv.textContent = ""
@@ -95,7 +95,7 @@ if (event.key === "End") {
 		stopAnimation()
 		if (getCurrentFeature() === "PingPong") cleanupPingPong()
 		if (getCurrentFeature() === "Test Animation") stopAnimation()
-    	setCurrentFeature("Home")
+    	setCurrentFeature(currentFeature)
 		consoleDiv.textContent = ""
 		return
 	})
