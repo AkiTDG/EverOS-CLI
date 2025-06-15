@@ -80,12 +80,10 @@ export async function calculator(expression) {
 
     window.writeToConsole(`= ${result}`)
 
-    // Save to history using Netlify backend
     await logCalculation(mathExpression, result.toString())
 
   } catch (error) {
     console.error(error)
-    window.writeToConsole('Statement error: ' + error.message)
-
+    window.writeToConsole(`Statement error: ${error.message}`)
   }
 }
