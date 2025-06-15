@@ -76,7 +76,7 @@ function receipt(name, height, weight, BMI) {
 |BMI Status: ${BMI.toUpperCase().padEnd(27)}|
 |Date Taken: ${date.toUpperCase().padEnd(27)}|
 |=======================================|
-|[This receipt is made on EverOS]       |
+|[This receipt is made on EverAS]       |
 |[Do not edit]                          |
 |=======================================|
 +---------------------------------------+`
@@ -140,7 +140,7 @@ export function BMICalculator(input, writeToConsole) {
       if (input.toLowerCase() === "y") {
         receipt(bmiState.name, bmiState.heightInput, bmiState.weightInput, bmiState.result)
         logBMIRecord(bmiState.name,bmiState.heightInput,bmiState.weightInput,bmiState.result).then(success => {
-          if (success) {writeToConsole("[Your BMI record was successfully saved to the database.]\n")} 
+          if (success){writeToConsole("[Your BMI record was successfully saved to the database.]\n")} 
           else {writeToConsole("[Error: Failed to save your BMI record to the database.]\n")}})
         writeToConsole("[Your receipt is now downloaded.]\n")
       } else if (input.toLowerCase() === "n") {
