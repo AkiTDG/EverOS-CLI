@@ -1,9 +1,10 @@
 import { createClient } from 'https://esm.sh/@supabase/supabase-js'
 
-const supabase = createClient(
- 'https://zmnlctsroufobhdyntsw.supabase.co',
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InptbmxjdHNyb3Vmb2JoZHludHN3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk5MDEwOTIsImV4cCI6MjA2NTQ3NzA5Mn0.rG71SRERVjnIrQDcQbqGKwiFUsO3mhQ37bPXnFrenjM'
-)
+// 🔓 Hardcoded Supabase credentials (replace with your actual values)
+const supabaseUrl = 'https://zmnlctsroufobhdyntsw.supabase.co'
+const supabaseKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InptbmxjdHNyb3Vmb2JoZHludHN3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDk5MDEwOTIsImV4cCI6MjA2NTQ3NzA5Mn0.rG71SRERVjnIrQDcQbqGKwiFUsO3mhQ37bPXnFrenjM'
+
+const supabase = createClient(supabaseUrl, supabaseKey)
 
 export async function handler(event) {
   const { type, expression, result } = JSON.parse(event.body || '{}')
@@ -53,4 +54,3 @@ function respond(statusCode, body) {
     body: JSON.stringify(body),
   }
 }
-
