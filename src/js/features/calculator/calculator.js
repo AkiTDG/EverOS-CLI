@@ -18,9 +18,10 @@ export const calcUI = `
 | [%: Modulus. Takes division remainder as result.      ] |
 |                                                         |
 | <==History Commands==>                                  |
-| [calc hist *   : Show all history]                      |
-| [calc hist OP  : Show specific OP history]              |
-| [calc hist del OP : Delete specific OP from history]    |
+| [calc hist *      : Show all history                  ] |
+| [calc hist OP     : Show specific OP history          ] |
+| [calc hist del OP : Delete specific OP from history   ] |
+| [calc hist del *  : Delete all OP history             ] |
 |=========================================================|
 +---------------------------------------------------------+`
 
