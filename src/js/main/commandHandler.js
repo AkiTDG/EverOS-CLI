@@ -27,7 +27,7 @@ export function handleCommand(rawInput, context)
 	if (command === "" && context.ponghasStart) return
 	//OS commands
 	if (lowerCommand === "clear") {
-		currentFeatureSetter("Home")
+		currentFeatureSetter(currentFeature)
 		stopAnimation()
 		consoleDiv.textContent = ""
 		return
@@ -92,7 +92,7 @@ export function handleCommand(rawInput, context)
 			case "secret":
 				currentFeatureSetter("unknown")
 				setTimeout(function() {
-					window.location.href = "https://tinyurl.com/miku-miku-miku"
+					window.location.href = "https://tinyurl.com/teto-miku"
 				}, 1e4)
 				writeToConsole('Unknown feature. Type "help" for available commands.')
 				break
