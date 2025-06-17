@@ -7,6 +7,7 @@ import{BMICalculator,bmiUI,initBMI} from "../features/bmi_calculator/bmi_calcula
 import{converterLogic,resetConvMode,dtcUI} from "../features/daytime_converter.js"
 import{PingPong,cleanupPingPong,endGame,pingpongUI,pongInit,ponghasStart} from "../features/games/pong.js"
 import{runAnimation,stopHandlerKey,stopAnimation} from "../features/experimental/testASCIIAnimation.js"
+import{dictionary,engUI} from "../features/eng_dictionary/dictionary.js"
 //backbone of the console OS
 const consoleDiv = document.getElementById("console")
 const inputField = document.getElementById("input")
@@ -46,7 +47,7 @@ inputField.addEventListener("keydown", function (event)
 if (event.key === "Enter")
    {
 	const command = inputField.value
-	if (command.trim() !== "") {writeToConsole("\nEverOS/" + currentFeature + ">> " + command)
+	if (command.trim() !== "") {writeToConsole("\nEverAS/" + currentFeature + ">> " + command)
 	handleCommand(command,
 	   {currentFeatureGetter: getCurrentFeature,
 		currentFeatureSetter: setCurrentFeature,
@@ -57,9 +58,10 @@ if (event.key === "Enter")
 		BMICalculator,initBMI,bmiUI,
 		converterLogic,resetConvMode,dtcUI
 	    ,PingPong,cleanupPingPong,endGame,pongInit,ponghasStart,pingpongUI
-		,runAnimation,stopHandlerKey,stopAnimation
+		,runAnimation,stopHandlerKey,stopAnimation,
+		dictionary,engUI
 	})} 
-	else if (currentFeature === "Home") {writeToConsole("EverOS/Home>> ")}
+	else if (currentFeature === "Home") {writeToConsole("EverAS/Home>> ")}
 	inputField.value=""
 	}
 //shortcut keys for "nav home" and "clear" commands

@@ -16,7 +16,8 @@ export function handleCommand(rawInput, context)
 		converterLogic,resetConvMode,dtcUI,
 		PingPong,cleanupPingPong,endGame,pongInit,ponghasStart,pingpongUI,
 		//ArtRandomizer,
-		runAnimation,stopHandlerKey,stopAnimation
+		runAnimation,stopHandlerKey,stopAnimation,
+		dictionary,engUI
 	} = context
 	stopAnimation()
 	if (!context.ponghasStart) cleanupPingPong()
@@ -89,6 +90,10 @@ export function handleCommand(rawInput, context)
 				currentFeatureSetter("PingPong")
 				pongInit()
 				break
+			case "eng":
+				currentFeatureSetter("Dictionary")
+				consoleDiv.innerHTML=engUI
+				break
 			case "secret":
 				currentFeatureSetter("unknown")
 				setTimeout(function() {
@@ -119,6 +124,10 @@ export function handleCommand(rawInput, context)
 	if (currentFeature === "Day time converter") {
 		converterLogic(command, writeToConsole)
 		return
+	}
+	if (currentFeature === "Dictionary") {
+	dictionary(command, writeToConsole)
+	return
 	}
 	//throws error when command is unknown
 	writeToConsole('Unknown command. Type "help" for assistance.')

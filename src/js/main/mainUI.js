@@ -14,6 +14,7 @@ export function homeMenu(){
  _  _  _                             __            
 |_||_)|_) |  o  _  _ _|_ o  _ __    (_     o _|_ _ 
 | ||  |   |  | (_ (_| |_ | (_)| |   __)|_| |  |_(/_
+
 +----------------------------------------------+
 |==============[Welcome to EverAS!]============|
 |                                              |
@@ -47,14 +48,15 @@ export const mainMenu =
 | +------------------------------------------+ |
 | | A. Calculators                           | |
 | |    BMI calculator................(bmi)   | |
-| |    Simple calculator............(calc)   | |  
+| |    Simple calculator............(calc)   | |
 | | B. Converters                            | |
 | |    Day/Time converter............(dtc)   | |
 | |    Temperature converter..........(tc)   | |
 | | C. Games                                 | |
-| |    Ping pong....................(pong)   | | 
+| |    Ping pong....................(pong)   | |
 | | D. Miscellaneous                         | |
-| |    Animation test..............(+-*/%)   | | 
+| |    Animation test..............(+-*/%)   | |
+| |    Dictionary...................(eng)    | |
 | +------------------------------------------+ |
 |==============================================|
 +----------------------------------------------+`
@@ -81,6 +83,9 @@ export const helpMenu =
 |             Controls: ↑ ↓ (PC), hover (Mobile)           |
 | D. Miscellaneous                                         |
 |   1. +-*/% (animation test) - render ASCII animation     |
+|   2. eng - English Dictionary (OPTED 1913 Webster)       |
+|     • Type a word to get its definition.                 |
+|     • Use (suffix) to search suffixes, e.g. "(ness)"     |
+|     • Based on public domain 1913 Webster’s Dictionary   |
 |==========================================================|
-+----------------------------------------------------------+
-`
++----------------------------------------------------------+`
